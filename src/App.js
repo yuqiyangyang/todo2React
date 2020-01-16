@@ -30,11 +30,18 @@ markComplete=(id) =>{
     return todo;
   })})
 }
+
+delTodo=(id)=>{
+  //use filter method, return another array
+  this.setState({todos:[...this.state.todo.filter(todo=>todo.id!==id)]})
+}
+
   render(){ 
     return (
       <div className="App">
         <h1>App</h1>
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} 
+        delTodo={this.delTodo}/>
       </div>
     );
   }
